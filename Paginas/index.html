@@ -15,6 +15,7 @@
 
   <!-- Terminal de login -->
   <div id="terminal-login" style="display: none; text-align: center; padding-top: 20vh;">
+    <img src="/imagem/Nanotrasen_Logo.png" alt="Nanotrasen Logo" style="width: 180px; height: auto;" />
     <h1 class="fade-in">🔐 Terminal de Segurança Nanotrasen</h1>
     <input class="input-animate" type="password" id="terminal-senha" placeholder="Insira a chave de acesso ao terminal..." />
     <br />
@@ -39,11 +40,14 @@
       <li><a href="#" style="color:#0f0;" onclick="loadPage('Historico.html')">[HISTÓRICO-PESSOAL-MILITAR]</a></li>
       <li><a href="#" style="color:#0f0;" onclick="loadPage('videotape.html')">[VIDEOTAPE-0429-XENO]</a></li>
       <li><a href="#" style="color:#0f0;" onclick="loadPage('psicologo.html')">[LOG-MEDICO-PSIC]</a></li>
-      <li><a href="#" style="color:#0f0;" onclick="loadPage('log_omega.html')">[LOG-PROTCOLO-OMEGA]</a></li>
+      <li><a href="#" style="color:#0f0;" onclick="loadPage('log_omega_denied.html')">[LOG-PROTCOLO-OMEGA]</a></li>
 
 
     </ul>
   </div>
+ <!-- Eu sei que esse window.onload é desnecessário, mas eu não consegui fazer funcionar o evento onclick sem ele -->
+  <div class="footer">
+    <p>Nanotrasen © 2025 - Todos os direitos reservados.</p>
 
   <script>
     window.onload = function () {
@@ -80,4 +84,3 @@
   </script>
 </body>
 </html>
-
