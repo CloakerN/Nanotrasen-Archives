@@ -46,6 +46,9 @@
   </div>
 
   <script>
+    import { injectSpeedInsights } from '@vercel/speed-insights';
+
+    injectSpeedInsights();
     window.onload = function () {
       const senhaServidor = prompt("[NANOTRASEN] - Autenticação requerida. Insira a chave de segurança do servidor:");
       if (senhaServidor === "NT-SECURE-0429") {
