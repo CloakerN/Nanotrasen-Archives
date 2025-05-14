@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nanotrasen Confidential</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="../imagem/NTLogo.png" type="image/png">
+</head>
+<body class="scanlines" style="display: none">
+  <audio autoplay loop>
+    <source src="/sons/som-terminal.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio embutido.
+  </audio>
+
+  <!-- Terminal de login -->
+  <div id="terminal-login" style="display: none; text-align: center; padding-top: 20vh;">
+    <img src="../imagem/Nanotrasen_Logo.png" alt="Nanotrasen Logo" style="width: 180px; height: auto;" />
+    <h1 class="fade-in">🔐 Terminal de Segurança Nanotrasen</h1>
+    <input class="input-animate" type="password" id="terminal-senha" placeholder="Insira a chave de acesso ao terminal..." />
+    <br />
+    <button onclick="verificarTerminalSenha()">Acessar Terminal</button>
+  </div>
+
+  <div id="conteudo" style="display: none">
+    <div class="confidential">Nanotrasen Confidential Database</div>
+
+  <div class="typewriter">
+    Accessing File: ABEL_CHAPMAN.DOS...
+  </div>
+
+  <div class="stamp">CLASSIFICADO</div>
+
+  <!-- Conteúdo dinâmico -->
+  <div id="content-container"></div>
+
+  <div class="folder">
+    <h3>Arquivos Relacionados</h3>
+    <ul>
+      <li><a href="#" style="color:#0f0;" onclick="loadPage('Historico.html')">[HISTÓRICO-PESSOAL-MILITAR]</a></li>
+      <li><a href="#" style="color:#0f0;" onclick="loadPage('videotape.html')">[VIDEOTAPE-0429-XENO]</a></li>
+      <li><a href="#" style="color:#0f0;" onclick="loadPage('psicologo.html')">[LOG-MEDICO-PSIC]</a></li>
+      <li><a href="#" style="color:#0f0;" onclick="loadPage('log_omega.html')">[LOG-PROTCOLO-OMEGA]</a></li>
+
+
+    </ul>
+  </div>
+ <!-- Eu sei que esse window.onload é desnecessário, mas eu não consegui fazer funcionar o evento onclick sem ele -->
+  <div class="footer">
+    <p>Nanotrasen © 2025 - Todos os direitos reservados.</p>
+
+  <script>
+    window.onload = function () {
+      const senhaServidor = prompt("[NANOTRASEN] - Autenticação requerida. Insira a chave de segurança do servidor:");
+      if (senhaServidor === "NT-SECURE-0429") {
+        document.getElementById("terminal-login").style.display = "block";
+      } else {
+        document.body.innerHTML = '<h1 style="color: red; text-align:center;">ACESSO NEGADO</h1>';
+      }
+      document.body.style.display = "block";
+    };
+
+    function verificarTerminalSenha() {
+      const senhaTerminal = document.getElementById("terminal-senha").value;
+      if (senhaTerminal === "TERMINAL-ACCESS-CHAP0429") {
+        document.getElementById("terminal-login").style.display = "none";
+        document.getElementById("conteudo").style.display = "block";
+        loadPage('dossie.html');
+      } else {
+        alert("Chave de terminal inválida. Tente novamente.");
+      }
+    }
+
+    function loadPage(file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById("content-container").innerHTML = html;
+        })
+        .catch(error => {
+          document.getElementById("content-container").innerHTML = '<p style="color:red;">Erro ao carregar arquivo.</p>';
+        });
+    }
+  </script>
+</body>
+</html>
+
